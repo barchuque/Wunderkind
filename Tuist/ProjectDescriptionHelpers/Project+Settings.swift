@@ -1,6 +1,6 @@
 import ProjectDescription
 
-//MARK: - BASIC PROJECT SETTINGS
+// MARK: - BASIC PROJECT SETTINGS
 public extension Project {
     static let MARKETING_VERSION = "1.0.0"
     static let CURRENT_BUILD_NUMBER = "1"

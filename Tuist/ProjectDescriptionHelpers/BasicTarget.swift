@@ -41,7 +41,7 @@ public extension Target {
     }
 }
 
-// MARK: BASIC TARGET DEPENDENCIES
+// MARK: - BASIC TARGET DEPENDENCIES
 public extension TargetDependency {
     static func basicTargetDependencies() -> [TargetDependency] {
         return [
@@ -51,7 +51,7 @@ public extension TargetDependency {
     }
 }
 
-// MARK: BASIC TARGET SETTINGS
+// MARK: - BASIC TARGET SETTINGS
 public extension Settings {
     static func basicTargetProductionSettings() -> Settings {
         return Settings.settings(
