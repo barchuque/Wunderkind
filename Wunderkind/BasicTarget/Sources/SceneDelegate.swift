@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Wunderkind
+//  wunderkind
 //
 //  Created by Антон Барышев on 29.04.2025.
 //
