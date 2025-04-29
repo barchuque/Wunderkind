@@ -1,17 +1,12 @@
-//
-//  AppDelegate.swift
-//  wunderkind
-//
-//  Created by Антон Барышев on 29.04.2025.
-//
-
 import UIKit
+import Resources
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Просто проверка на падение
+        let image = Asset.TestCategory.firstImage
         return true
     }
 

@@ -46,7 +46,7 @@ public extension TargetDependency {
     static func basicTargetDependencies() -> [TargetDependency] {
         return [
             .external(name: "SnapKit", condition: nil),
-            .target(name: "Services", condition: nil)
+            .target(name: "Resources", condition: nil)
         ]
     }
 }

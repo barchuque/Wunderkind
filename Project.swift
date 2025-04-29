@@ -15,5 +15,6 @@ let project = Project(
         ]
     ),
     targets: Target.basicTargets() +
-             Target.moduleTargets()
+             Target.moduleTargets(),
+    resourceSynthesizers: [.strings(), .assets()]
 )
