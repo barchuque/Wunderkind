@@ -4,6 +4,9 @@ import ProjectDescriptionHelpers
 // MARK: - PROJECT IMPLEMENTATION
 let project = Project(
     name: "Wunderkind",
+    options: .options(
+        disableBundleAccessors: true
+    ),
     settings: Settings.settings(
         base: SettingsDictionary()
             .marketingVersion(Project.MARKETING_VERSION)

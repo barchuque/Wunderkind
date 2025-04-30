@@ -1,2 +1,2 @@
-"FIRST_STRING" = "Test";
+"FIRST_STRING" = "Test %@";
 "SECOND_STRING" = "Test";
