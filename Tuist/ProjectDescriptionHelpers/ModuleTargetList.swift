@@ -5,18 +5,37 @@ public extension Target {
     static func moduleTargets() -> [Target] {
         return [
             Target.moduleTarget(
-                name: "Network",
+                name: "Resources",
+                dependencies: []
+            ),
+            Target.moduleTarget(
+                name: "DesignSystem",
+                dependencies: [
+                    .target(name: "Resources", condition: nil)
+                ]
+            ),
+            Target.moduleTarget(
+                name: "NetworkCore",
                 dependencies: []
             ),
             Target.moduleTarget(
                 name: "Services",
                 dependencies: [
-                    .target(name: "Network", condition: nil)
+                    .target(name: "NetworkCore", condition: nil)
                 ]
             ),
             Target.moduleTarget(
-                name: "Resources",
-                dependencies: []
+                name: "LaunchFeature",
+                dependencies: [
+                    .target(name: "DesignSystem", condition: nil),
+                    .target(name: "Services", condition: nil)
+                ]
+            ),
+            Target.moduleTarget(
+                name: "ApplicationNavigation",
+                dependencies: [
+                    .target(name: "LaunchFeature", condition: nil)
+                ]
             )
         ]
     }
