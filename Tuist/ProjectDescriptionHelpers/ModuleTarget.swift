@@ -14,11 +14,11 @@ public extension Target {
             deploymentTargets: .iOS(Project.MINIMAL_SUPPORTED_IOS_VERSION),
             infoPlist: .default,
             sources: [
-                "Wunderkind/ModuleTarget/\(name)/Source/**/*.swift"
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.swift"
             ],
             resources: [
-                "Wunderkind/ModuleTarget/\(name)/Source/**/*.xcassets",
-                "Wunderkind/ModuleTarget/\(name)/Source/**/*.strings"
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.xcassets",
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.strings"
             ],
             dependencies: dependencies
         )

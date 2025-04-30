@@ -28,12 +28,12 @@ public extension Target {
             product: .app,
             bundleId: bundleID,
             deploymentTargets: .iOS(Project.MINIMAL_SUPPORTED_IOS_VERSION),
-            infoPlist: .file(path: "Wunderkind/BasicTarget/\(name)/Info.plist"),
+            infoPlist: .file(path: "Wunderkind/ApplicationTarget/Sources/\(name).plist"),
             sources: [
-                "Wunderkind/BasicTarget/Sources/**/*.swift"
+                "Wunderkind/ApplicationTarget/Sources/**/*.swift"
             ],
             resources: [
-                "Wunderkind/BasicTarget/Sources/**/*.storyboard"
+                "Wunderkind/ApplicationTarget/Sources/**/*.storyboard"
             ],
             dependencies: TargetDependency.basicTargetDependencies(),
             settings: settings
