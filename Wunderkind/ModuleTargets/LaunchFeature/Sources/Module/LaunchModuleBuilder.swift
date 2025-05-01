@@ -1,4 +1,5 @@
 import UIKit
+import CoreTypes
 
 public class LaunchModuleBuilder {
     public static func build(
@@ -8,7 +9,7 @@ public class LaunchModuleBuilder {
         let interactiveNavigationListener = LaunchInteractiveNavigationListener(output: interactiveNavigationOutput)
         
         let launchView = LaunchView(moduleOutput: moduleOutput)
-        let hostingController = HostingViewController(rootView: launchView)
+        let hostingController = HostingController(rootView: launchView)
         
         hostingController.interactiveNavigationListener = interactiveNavigationListener
         hostingController.sheetPresentationController?.delegate = interactiveNavigationListener

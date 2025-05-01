@@ -1,4 +1,5 @@
 import UIKit
+import CoreTypes
 
 public protocol LaunchInteractiveNavigationListenerOutputProtocol: AnyObject {
     func launchModuleDidDisapper()
