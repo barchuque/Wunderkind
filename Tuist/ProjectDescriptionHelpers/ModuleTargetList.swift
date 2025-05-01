@@ -36,10 +36,6 @@ public extension Target {
                 dependencies: [
                     .target(name: "LaunchFeature", condition: nil)
                 ]
-            ),
-            Target.moduleTarget(
-                name: "Resources",
-                dependencies: []
             )
         ]
     }
