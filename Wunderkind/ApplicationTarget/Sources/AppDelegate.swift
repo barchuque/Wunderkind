@@ -1,13 +1,10 @@
 import UIKit
-import Resources
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Просто проверка на падение
-        let image = Resources.Images.testImage.image
-        let string = Localizable.firstString("111")
         return true
     }
 
