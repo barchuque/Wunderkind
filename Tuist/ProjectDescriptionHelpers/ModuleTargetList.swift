@@ -15,13 +15,13 @@ public extension Target {
                 ]
             ),
             Target.moduleTarget(
-                name: "Network",
+                name: "CoreNetwork",
                 dependencies: []
             ),
             Target.moduleTarget(
                 name: "Services",
                 dependencies: [
-                    .target(name: "Network", condition: nil)
+                    .target(name: "CoreNetwork", condition: nil)
                 ]
             ),
             Target.moduleTarget(

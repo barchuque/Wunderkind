@@ -8,7 +8,12 @@ public class LaunchModuleBuilder {
     ) -> UIViewController {
         let interactiveNavigationListener = LaunchInteractiveNavigationListener(output: interactiveNavigationOutput)
         
-        let launchView = LaunchView(moduleOutput: moduleOutput)
+        let launchViewModel = LaunchViewModel(
+            initialData: LaunchInitialData(id: "Это какой-то айдишник"),
+            moduleOutput: moduleOutput
+        )
+        
+        let launchView = LaunchView(viewModel: launchViewModel)
         let hostingController = HostingController(rootView: launchView)
         
         hostingController.interactiveNavigationListener = interactiveNavigationListener

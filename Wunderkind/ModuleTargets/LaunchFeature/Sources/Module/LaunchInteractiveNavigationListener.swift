@@ -5,10 +5,10 @@ public protocol LaunchInteractiveNavigationListenerOutputProtocol: AnyObject {
     func launchModuleDidDisapper()
 }
 
-public class LaunchInteractiveNavigationListener: NSObject, InteractiveNavigationListenerProtocol {
+public class LaunchInteractiveNavigationListener: NSObject, InteractiveNavigationListenerProtocol {    
     private weak var output: LaunchInteractiveNavigationListenerOutputProtocol?
     
-    public func viewControllerDidDisapper() {
+    public func viewControllerDidDisappear() {
         self.output?.launchModuleDidDisapper()
     }
     

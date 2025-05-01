@@ -6,7 +6,7 @@ public class HostingController<Content: View>: UIHostingController<Content> {
     override public func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         if parent == nil {
-            interactiveNavigationListener?.viewControllerDidDisapper()
+            interactiveNavigationListener?.viewControllerDidDisappear()
         }
     }
 }
