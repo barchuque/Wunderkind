@@ -20,6 +20,7 @@ public extension Target {
                 "Wunderkind/ModuleTargets/\(name)/Sources/**/*.xcassets",
                 "Wunderkind/ModuleTargets/\(name)/Sources/**/*.strings"
             ],
+            scripts: TargetScript.swiftLintTargetScript(),
             dependencies: dependencies
         )
     }

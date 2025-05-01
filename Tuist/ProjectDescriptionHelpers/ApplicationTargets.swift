@@ -35,6 +35,7 @@ public extension Target {
             resources: [
                 "Wunderkind/ApplicationTarget/Sources/**/*.storyboard"
             ],
+            scripts: TargetScript.swiftLintTargetScript(),
             dependencies: TargetDependency.basicTargetDependencies(),
             settings: settings
         )
