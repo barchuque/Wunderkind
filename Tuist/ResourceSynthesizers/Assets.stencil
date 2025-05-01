@@ -1,0 +1,72 @@
+{% if catalogs %}
+import UIKit.UIImage
+{% macro casesBlock assets tabulation %}
+    {% for asset in assets %}
+        {% if asset.type == "color" %}
+{{tabulation}}public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = ColorAsset(name: "{{asset.value}}")
+        {% elif asset.type == "image" %}
+{{tabulation}}public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = ImageAsset(name: "{{asset.value}}")
+        {% elif asset.items %}
+{{tabulation}}public enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+{% set tabulationDouble %}{{tabulation}}{{"    "}}{% endset %}
+{% call casesBlock asset.items tabulationDouble %}
+{{tabulation}}}
+
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+public enum Resources {
+  {% if catalogs.count > 1 %}
+  {% for catalog in catalogs %}
+    public enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+      {% call casesBlock catalog.assets "  " %}
+    }
+  {% endfor %}
+  {% else %}
+  {% call casesBlock catalogs.first.assets "    " %}
+  {% endif %}
+}
+
+// MARK: UIImage EXTENSION
+private extension UIImage {
+    convenience init!(asset: ImageAsset) {
+        let bundle = Bundle(for: BundleToken.self)
+        self.init(named: asset.name, in: bundle, compatibleWith: nil)
+    }
+}
+
+// MARK: - UIImage HELPER IMPLEMENTATION
+public struct ImageAsset {
+    public fileprivate(set) var name: String
+
+    public var image: UIImage {
+      let bundle = Bundle(for: BundleToken.self)
+      let image = UIImage(named: name, in: bundle, compatibleWith: nil)
+      guard let result = image else { fatalError("Unable to load image named \(name).") }
+      return result
+    }
+}
+
+// MARK: UIColor EXTENSION
+private extension UIColor {
+    convenience init!(asset: ColorAsset) {
+      let bundle = Bundle(for: BundleToken.self)
+      self.init(named: asset.name, in: bundle, compatibleWith: nil)
+    }
+}
+
+// MARK: - UIColor HELPER IMPLEMENTATION
+public struct ColorAsset {
+    public fileprivate(set) var name: String
+
+    public var color: UIColor {
+      return UIColor(asset: self)
+    }
+}
+
+// MARK: - BUNDLE PATH HELPER
+private final class BundleToken {}
+{% else %}
+// No assets found
+{% endif %}

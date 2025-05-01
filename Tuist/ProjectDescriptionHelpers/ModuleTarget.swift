@@ -4,18 +4,21 @@ import ProjectDescription
 public extension Target {
     static func moduleTarget(
         name: String,
-        dependencies: [TargetDependency],
-        resources: ProjectDescription.ResourceFileElements? = []
+        dependencies: [TargetDependency]
     ) -> Target {
         Target.target(
             name: name,
             destinations: .iOS,
-            product: .staticFramework,
+            product: .framework,
             bundleId: "ru.wunderkind.\(name.lowercased())",
             deploymentTargets: .iOS(Project.MINIMAL_SUPPORTED_IOS_VERSION),
             infoPlist: .default,
             sources: [
-                "Wunderkind/ModuleTarget/\(name)/Source/**/*.swift"
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.swift"
+            ],
+            resources: [
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.xcassets",
+                "Wunderkind/ModuleTargets/\(name)/Sources/**/*.strings"
             ],
             dependencies: dependencies
         )

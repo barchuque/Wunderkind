@@ -13,6 +13,10 @@ public extension Target {
                 dependencies: [
                     .target(name: "Network", condition: nil)
                 ]
+            ),
+            Target.moduleTarget(
+                name: "Resources",
+                dependencies: []
             )
         ]
     }
