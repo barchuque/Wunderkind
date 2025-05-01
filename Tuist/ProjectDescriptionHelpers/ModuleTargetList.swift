@@ -15,18 +15,23 @@ public extension Target {
                 ]
             ),
             Target.moduleTarget(
-                name: "NetworkCore",
+                name: "Network",
                 dependencies: []
             ),
             Target.moduleTarget(
                 name: "Services",
                 dependencies: [
-                    .target(name: "NetworkCore", condition: nil)
+                    .target(name: "Network", condition: nil)
                 ]
+            ),
+            Target.moduleTarget(
+                name: "CoreTypes",
+                dependencies: []
             ),
             Target.moduleTarget(
                 name: "LaunchFeature",
                 dependencies: [
+                    .target(name: "CoreTypes", condition: nil),
                     .target(name: "DesignSystem", condition: nil),
                     .target(name: "Services", condition: nil)
                 ]
@@ -36,10 +41,6 @@ public extension Target {
                 dependencies: [
                     .target(name: "LaunchFeature", condition: nil)
                 ]
-            ),
-            Target.moduleTarget(
-                name: "Resources",
-                dependencies: []
             )
         ]
     }
