@@ -1,0 +1,45 @@
+name: Tuist Actions
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+    
+  workflow_dispatch:
+    inputs:
+      generate-options:
+        description: 'Дополнительные флаги для tuist generate'
+        required: false
+        default: '--no-open'
+
+      build-options:
+        description: 'Дополнительные флаги для tuist build'
+        required: false
+        default: ''
+
+jobs:
+  generate:
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+
+      - name: Install Tuist
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist@4.48.2
+          tuist version
+
+      - name: Install dependencies
+        run: tuist install
+
+      - name: Generate project
+        run: tuist generate ${{ github.event.inputs.generate-options }}
+
+      - name: Build Project
+        run: tuist build ${{ github.event.inputs.build-options }}
